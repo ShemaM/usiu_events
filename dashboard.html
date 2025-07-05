@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | USIU Campus Events</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .profile-header {
+            background: linear-gradient(rgba(0, 86, 179, 0.8), rgba(0, 86, 179, 0.9));
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+        }
+        .nav-pills .nav-link.active {
+            background-color: var(--primary-color);
+        }
+        .stat-card {
+            border-left: 4px solid var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (modified for dashboard) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/images/usiu-logo.png" alt="USIU Logo" height="40" class="me-2">
+                <span class="fw-bold">Campus Events</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i>Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="events.html"><i class="fas fa-calendar-alt me-1"></i>Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="clubs.html"><i class="fas fa-users me-1"></i>Clubs</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle me-1"></i>John D.
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="dashboard.html"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2"></i>Profile</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Header -->
+    <header class="profile-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-2 text-center mb-4 mb-md-0">
+                    <img src="assets/images/user-profile.jpg" class="rounded-circle" width="120" height="120" alt="Profile">
+                </div>
+                <div class="col-md-10">
+                    <h1 class="fw-bold mb-2">John Doe</h1>
+                    <p class="lead mb-3">USIU-12345 | Computer Science | 3rd Year</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <div class="badge bg-light text-dark">
+                            <i class="fas fa-calendar-check me-1"></i> 8 Events Attended
+                        </div>
+                        <div class="badge bg-light text-dark">
+                            <i class="fas fa-users me-1"></i> 3 Clubs
+                        </div>
+                        <div class="badge bg-light text-dark">
+                            <i class="fas fa-star me-1"></i> 450 Points
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-4">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar Navigation -->
+                <div class="col-lg-3 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <ul class="nav nav-pills flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#overview" data-bs-toggle="pill">
+                                        <i class="fas fa-tachometer-alt me-2"></i>Overview
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#events" data-bs-toggle="pill">
+                                        <i class="fas fa-calendar-alt me-2"></i>My Events
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#clubs" data-bs-toggle="pill">
+                                        <i class="fas fa-users me-2"></i>My Clubs
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#notifications" data-bs-toggle="pill">
+                                        <i class="fas fa-bell me-2"></i>Notifications
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#profile" data-bs-toggle="pill">
+                                        <i class="fas fa-user me-2"></i>Profile
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#settings" data-bs-toggle="pill">
+                                        <i class="fas fa-cog me-2"></i>Settings
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="card mt-4">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0"><i class="fas fa-trophy me-2"></i>Achievements</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="me-3 text-warning">
+                                    <i class="fas fa-medal fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">Event Explorer</h6>
+                                    <small class="text-muted">Attended 5+ events</small>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="me-3 text-secondary">
+                                    <i class="fas fa-medal fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">Club Enthusiast</h6>
+                                    <small class="text-muted">Joined 3+ clubs</small>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="me-3 text-danger">
+                                    <i class="fas fa-medal fa-2x"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">Early Bird</h6>
+                                    <small class="text-muted">Registered for events early</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Main Content Area -->
+                <div class="col-lg-9">
+                    <div class="tab-content">
+                        <!-- Overview Tab -->
+                        <div class="tab-pane fade show active" id="overview">
+                            <div class="row mb-4">
+                                <div class="col-md-4 mb-3">
+                                    <div class="card h-100 stat-card">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-muted">Upcoming Events</h5>
+                                            <h2 class="fw-bold">3</h2>
+                                            <a href="#events" class="btn btn-sm btn-outline-primary">View All</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card h-100 stat-card">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-muted">Club Memberships</h5>
+                                            <h2 class="fw-bold">2</h2>
+                                            <a href="#clubs" class="btn btn-sm btn-outline-primary">View All</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card h-100 stat-card">
+                                        <div class="card-body">
+                                            <h5 class="card-title text-muted">Event Points</h5>
+                                            <h2 class="fw-bold">450</h2>
+                                            <a href="#" class="btn btn-sm btn-outline-primary">Redeem</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card mb-4">
+                                <div class="card-header bg-primary text-white">
+                                    <h5 class="mb-0"><i class="fas fa-calendar-alt me-2"></i>Upcoming Events</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Event</th>
+                                                    <th>Date</th>
+                                                    <th>Location</th>
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Drama Club Auditions</td>
+                                                    <td>Nov 15, 2023</td>
+                                                    <td>Auditorium</td>
+                                                    <td><span class="badge bg-success">Registered</span></td>
+                                                    <td>
+                                                        <a href="event-details.html" class="btn btn-sm btn-outline-primary">View</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Tech Society Hackathon</td>
+                                                    <td>Nov 22, 2023</td>
+                                                    <td>Computer Lab 3</td>
+                                                    <td><span class="badge bg-success">Registered</span></td>
+                                                    <td>
+                                                        <a href="event-details.html" class="btn btn-sm btn-outline-primary">View</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Business Club Networking</td>
+                                                    <td>Dec 5, 2023</td>
+                                                    <td>Lecture Hall 2</td>
+                                                    <td><span class="badge bg-warning text-dark">Pending</span></td>
+                                                    <td>
+                                                        <a href="event-details.html" class="btn btn-sm btn-outline-primary">View</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card">
+                                <div class="card-header bg-primary text-white">
+                                    <h5 class="mb-0"><i class="fas fa-bell me-2"></i>Recent Notifications</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="list-group">
+                                        <a href="#" class="list-group-item list-group-item-action">
+                                            <div class="d-flex justify-content-between">
+                                                <h6 class="mb-1">Drama Club Audition Reminder</h6>
+                                                <small class="text-muted">2 days ago</small>
+                                            </div>
+                                            <p class="mb-1">Your audition for the drama club is in 3 days. Don't forget to prepare!</p>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action">
+                                            <div class="d-flex justify-content-between">
+                                                <h6 class="mb-1">New Event Added</h6>
+                                                <small class="text-muted">1 week ago</small>
+                                            </div>
+                                            <p class="mb-1">Tech Society has added a new hackathon event on November 22nd.</p>
+                                        </a>
+                                        <a href="#" class="list-group-item list-group-item-action">
+                                            <div class="d-flex justify-content-between">
+                                                <h6 class="mb-1">Event Registration Confirmation</h6>
+                                                <small class="text-muted">2 weeks ago</small>
+                                            </div>
+                                            <p class="mb-1">Your registration for the Business Club Networking event has been received.</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- My Events Tab -->
+                        <div class="tab-pane fade" id="events">
+                            <div class="card">
+                                <div class="card-header bg-primary text-white">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h5 class="mb-0"><i class="fas fa-calendar-alt me-2"></i>My Events</h5>
+                                        <div>
+                                            <select class="form-select form-select-sm">
+                                                <option>All Events</option>
+                                                <option>Upcoming</option>
+                                                <option>Past</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="nav nav-tabs mb-4" id="eventsTab" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link active" id="registered-tab" data-bs-toggle="tab" data-bs-target="#registered" type="button">Registered</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="attended-tab" data-bs-toggle="tab" data-bs-target="#attended" type="button">Attended</button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="saved-tab" data-bs-toggle="tab" data-bs-target="#saved" type="button">Saved</button>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content" id="eventsTabContent">
+                                        <div class="tab-pane fade show active" id="registered">
+                                            <div class="table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Event</th>
+                                                            <th>Date</th>
+                                                            <th>Club</th>
+                                                            <th>Status</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Drama Club Auditions</td>
+                                                            <td>Nov 15, 2023</td>
+                                                            <td>Drama Club</td>
+                                                            <td><span class="badge bg-success">Confirmed</span></td>
+                                                            <td>
+                                                                <button class="btn btn-sm btn-outline-danger">Cancel</button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Tech Society Hackathon</td>
+                                                            <td>Nov 22, 2023</td>
+                                                            <td>Tech Society</td>
+                                                            <td><span class="badge bg-success">Confirmed</span></td>
+                                                            <td>
+                                                                <button class="btn btn-sm btn-outline-danger">Cancel</button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Business Club Networking</td>
+                                                            <td>Dec 5, 2023</td>
+                                                            <td>Business Club</td>
+                                                            <td><span class="badge bg-warning text-dark">Pending</span></td>
+                                                            <td>
+                                                                <button class="btn btn-sm btn-outline-danger">Cancel</button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="attended">
+                                            <div class="table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Event</th>
+                                                            <th>Date</th>
+                                                            <th>Club</th>
+                                                            <th>Rating</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Hospitality Conference</td>
+                                                            <td>Oct 10, 2023</td>
+                                                            <td>Hotel & Tourism Club</td>
+                                                            <td>
+                                                                <i class="fas fa-star text-warning"></i>
+                                                                <i class="fas fa-star text-warning"></i>
+                                                                <i class="fas fa-star text-warning"></i>
+                                                                <i class="fas fa-star text-warning"></i>
+                                                                <i class="far fa-star text-warning"></i>
+                                                            </td>
+                                                            <td>
+                                                                <button class="btn btn-sm btn-outline-primary">Review</button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Programming Workshop</td>
+                                                            <td>Sep 28, 2023</td>
+                                                            <td>Tech Society</td>
+                                                            <td>
+                                                                <i class="fas fa-star text-warning"></i>
+                                                                <i class="fas fa-star text-warning"></i>
+                                                                <i class="fas fa-star text-warning"></i>
+                                                                <i class="fas fa-star text-warning"></i>
+                                                                <i class="fas fa-star-half-alt text-warning"></i>
+                                                            </td>
+                                                            <td>
+                                                                <button class="btn btn-sm btn-outline-primary">Review</button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="saved">
+                                            <div class="table-responsive">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Event</th>
+                                                            <th>Date</th>
+                                                            <th>Club</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Music Festival</td>
+                                                            <td>Dec 15, 2023</td>
+                                                            <td>Cultural Club</td>
+                                                            <td>
+                                                                <button class="btn btn-sm btn-primary me-2">Register</button>
+                                                                <button class="btn btn-sm btn-outline-danger">Remove</button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Basketball Tournament</td>
+                                                            <td>Jan 10, 2024</td>
+                                                            <td>Sports Club</td>
+                                                            <td>
+                                                                <button class="btn btn-sm btn-primary me-2">Register</button>
+                                                                <button class="btn btn-sm btn-outline-danger">Remove</button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- My Clubs Tab -->
+                        <div class="tab-pane fade" id="clubs">
+                            <div class="card">
+                                <div class="card-header bg-primary text-white">
+                                    <h5 class="mb-0"><i class="fas fa-users me-2"></i>My Clubs</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row row-cols-1 row-cols-md-2 g-4">
+                                        <div class="col">
+                                            <div class="card h-100">
+                                                <div class="row g-0">
+                                                    <div class="col-md-4">
+                                                        <img src="assets/images/tech-club.jpg" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="Tech Society">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Tech Society</h5>
+                                                            <p class="card-text">Exploring the latest in technology and innovation.</p>
+                                                            <div class="d-flex justify-content-between align-items-center">
+                                                                <span class="badge bg-primary">Member</span>
+                                                                <a href="club-details.html" class="btn btn-sm btn-outline-primary">View Club</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="card h-100">
+                                                <div class="row g-0">
+                                                    <div class="col-md-4">
+                                                        <img src="assets/images/business-club.jpg" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="Business Club">
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Business Club</h5>
+                                                            <p class="card-text">Developing future business leaders.</p>
+                                                            <div class="d-flex justify-content-between align-items-center">
+                                                                <span class="badge bg-primary">Member</span>
+                                                                <a href="club-details.html" class="btn btn-sm btn-outline-primary">View Club</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="card h-100">
+                                                <div class="card-body text-center">
+                                                    <i class="fas fa-plus-circle fa-3x text-muted mb-3"></i>
+                                                    <h5 class="card-title">Join More Clubs</h5>
+                                                    <p class="card-text">Discover and join other campus clubs</p>
+                                                    <a href="clubs.html" class="btn btn-primary">Browse Clubs</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Other tabs would be implemented similarly -->
+                        <div class="tab-pane fade" id="notifications">
+                            <!-- Notifications content -->
+                        </div>
+                        <div class="tab-pane fade" id="profile">
+                            <!-- Profile content -->
+                        </div>
+                        <div class="tab-pane fade" id="settings">
+                            <!-- Settings content -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="bg-dark text-white py-5">
+        <!-- Copy from index.html -->
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    </script>
+</body>
+</html>
